@@ -1,0 +1,118 @@
+[
+  {
+    "id": "s1",
+    "question": "האם ניסית לאתחל את הראוטר והמודם?",
+    "answers": ["כן", "לא", "בית"],
+    "next": ["s2", "fix_restart_router", "s54"],
+    "image": "lib/assets/images/task.jpg"
+  },
+  {
+    "id": "s54",
+    "question": "מה אתה מנסה לעשות",
+    "answers": ["כן", "לא", "חזור"],
+    "next": ["s2", "fix_restart_router", "s1"],
+    "image": "assets/images/task.jpg"
+  },
+  {
+    "id": "s2",
+    "question": "האם יש עומס משתמשים על הרשת הביתית?",
+    "answers": ["כן", "לא"],
+    "next": ["fix_network_congestion", "s3"]
+  },
+  {
+    "id": "s3",
+    "question": "האם אות ה-Wi-Fi חלש במיקום שלך?",
+    "answers": ["כן", "לא"],
+    "next": ["fix_weak_wifi", "s4"]
+  },
+  {
+    "id": "s4",
+    "question": "האם בדקת את תקינות הכבלים?",
+    "answers": ["כן", "לא"],
+    "next": ["s5", "fix_check_cables"]
+  },
+  {
+    "id": "s5",
+    "question": "האם כל המכשירים מעודכנים?",
+    "answers": ["כן", "לא"],
+    "next": ["s6", "fix_update_devices"]
+  },
+  {
+    "id": "s6",
+    "question": "האם אתה חווה השהיות (Latency) או גמגומים?",
+    "answers": ["כן", "לא"],
+    "next": ["fix_latency", "s7"]
+  },
+  {
+    "id": "s7",
+    "question": "האם האינטרנט איטי בעיקר בשעות מסוימות?",
+    "answers": ["כן", "לא"],
+    "next": ["fix_provider_congestion", "s8"]
+  },
+  {
+    "id": "s8",
+    "question": "האם ניסית לבדוק אם הספק מאט אותך (Throttling)?",
+    "answers": ["כן", "לא"],
+    "next": ["fix_throttling", "fix_unknown"]
+  },
+  {
+    "id": "fix_restart_router",
+    "question": "🔁 אתחל את הראוטר והמודם והמתן 2 דקות. האם זה פתר את הבעיה?",
+    "answers": ["כן", "לא"],
+    "next": ["end", "s2"]
+  },
+  {
+    "id": "fix_network_congestion",
+    "question": "📶 ייתכן שיש עומס על הרשת. נסה לצמצם מכשירים או לשדרג את החבילה.",
+    "answers": ["הבנתי"],
+    "next": ["end"]
+  },
+  {
+    "id": "fix_weak_wifi",
+    "question": "📡 ייתכן שאתה רחוק מהראוטר או שיש הפרעות. נסה למקם מחדש את הראוטר או להשתמש במאריך טווח.",
+    "answers": ["אוקיי"],
+    "next": ["end"]
+  },
+  {
+    "id": "fix_check_cables",
+    "question": "🔌 ודא שכל הכבלים מחוברים היטב וללא נזק. האם זה פתר את הבעיה?",
+    "answers": ["כן", "לא"],
+    "next": ["end", "s5"]
+  },
+  {
+    "id": "fix_update_devices",
+    "question": "💻 ודא שכל המכשירים מעודכנים והפעל אותם מחדש.",
+    "answers": ["בוצע"],
+    "next": ["s6"]
+  },
+  {
+    "id": "fix_latency",
+    "question": "🕒 אם אתה חווה השהיה, ייתכן שזה תלוי בספק או סוג החיבור. שקול לעבור לספק יציב יותר או לחיבור סיבים.",
+    "answers": ["הבנתי"],
+    "next": ["end"]
+  },
+  {
+    "id": "fix_provider_congestion",
+    "question": "🌐 עומס אצל הספק אפשרי. נסה להשתמש באינטרנט בשעות פחות עמוסות.",
+    "answers": ["אוקיי"],
+    "next": ["end"]
+  },
+  {
+    "id": "fix_throttling",
+    "question": "🛑 הספק עשוי להאט אותך בכוונה. נסה לבדוק דרך VPN אם המהירות עולה.",
+    "answers": ["הבנתי"],
+    "next": ["end"]
+  },
+  {
+    "id": "fix_unknown",
+    "question": "🔎 הבעיה לא זוהתה. מומלץ ליצור קשר עם התמיכה של הספק.",
+    "answers": ["סיום"],
+    "next": ["end"]
+  },
+  {
+    "id": "end",
+    "question": "✅ תודה! הפעולות בוצעו או שהטיפול עבר הלאה.",
+    "answers": [],
+    "next": []
+  }
+]

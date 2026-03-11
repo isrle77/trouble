@@ -1,0 +1,70 @@
+[
+  {
+    "id": "s1",
+    "question": "Is the computer slow – did it happen suddenly or has it always been like this?",
+    "answers": ["Suddenly", "Always", "Restart"],
+    "next": ["s2_sudden", "s2_always", "s1"]
+  },
+  {
+    "id": "s2_always",
+    "question": "Are many windows open? (e.g., browser, Zoom, Office...)?",
+    "answers": ["Yes", "Don't know", "No", "Restart"],
+    "next": ["s3_taskmanager", "s3_taskmanager", "s4_diskspace", "s1"]
+  },
+  {
+    "id": "s3_taskmanager",
+    "question": "Press Ctrl + Alt + Delete and select 'Task Manager'. Do you see programs using a lot of resources?",
+    "answers": ["Yes", "No", "Can't check", "Restart"],
+    "next": ["s4_closeapps", "s4_diskspace", "s4_help", "s1"],
+    "image": "lib/assets/images/taskmanager.jpg"
+  },
+  {
+    "id": "s4_closeapps",
+    "question": "Close the heavy programs using high CPU or memory. Done?",
+    "answers": ["Yes", "No", "Restart"],
+    "next": ["s4_diskspace", "s4_help", "s1"]
+  },
+  {
+    "id": "s4_diskspace",
+    "question": "Go to 'This PC' and check if drive C is almost full (red bar). Is it full?",
+    "answers": ["Yes", "No", "Don't know", "Restart"],
+    "next": ["s5_ssd", "s5_ssd", "s5_ssd", "s1"],
+    "image": "lib/assets/images/diskspace.jpg"
+  },
+  {
+    "id": "s5_ssd",
+    "question": "Search for 'defrag' in Start and open 'Optimize Drives'. Does it say SSD or HDD?",
+    "answers": ["SSD", "HDD", "Not shown", "Restart"],
+    "next": ["s6_ram", "s6_ram", "s6_ram", "s1"]
+  },
+  {
+    "id": "s6_ram",
+    "question": "Search for 'System Information' or 'About your PC'. How much RAM is listed?",
+    "answers": ["4GB or less", "8GB or more", "Didn't find", "Restart"],
+    "next": ["end_slow", "end_ok", "s4_help", "s1"]
+  },
+  {
+    "id": "s2_sudden",
+    "question": "If it happened suddenly – it might be an update or virus. Try restarting the computer. Did it help?",
+    "answers": ["Yes", "No", "Restart"],
+    "next": ["end_ok", "s4_help", "s1"]
+  },
+  {
+    "id": "s4_help",
+    "question": "Try asking someone who is technically skilled or send us a message. We'll try to help :)",
+    "answers": ["Restart"],
+    "next": ["s1"]
+  },
+  {
+    "id": "end_slow",
+    "question": "Your computer is likely underpowered. Consider upgrading to at least 8GB RAM or switching to an SSD.",
+    "answers": ["Restart"],
+    "next": ["s1"]
+  },
+  {
+    "id": "end_ok",
+    "question": "Your computer doesn't seem weak. There may be a problematic app. Consider checking with a technician or running antivirus.",
+    "answers": ["Restart"],
+    "next": ["s1"]
+  }
+]
