@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <script>
@@ -17,8 +17,9 @@
 
       let recognition;
       function startSpeechRecognition(callback) {
-        recognition = new (window.SpeechRecognition ||
-          window.webkitSpeechRecognition)();
+        recognition = new (
+          window.SpeechRecognition || window.webkitSpeechRecognition
+        )();
         recognition.lang = "he-IL"; // הגדרת עברית
         recognition.onresult = function (event) {
           const transcript = event.results[0][0].transcript; // טקסט המזוהה
@@ -51,7 +52,7 @@
     This is a placeholder for base href that will be replaced by the value of
     the `--base-href` argument provided to `flutter build`.
   -->
-    <base href="/web/" />
+    <base href="/trouble/" />
 
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
